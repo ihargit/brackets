@@ -2,13 +2,13 @@ module.exports = function check(str, bracketsConfig) {
   // your solution
 
   let brackets = [];
-  for (let bracket in str) {
-    for (let bracketPair in bracketsConfig) {
-      if (brackets[brackets.length - 1] === bracketPair[0] && bracket === bracketPair[1]) {
+  for (let i = 0; i < str.length; i++) {
+    for (let b = 0; b < bracketsConfig.length; b++) {
+      if (brackets[brackets.length - 1] === bracketsConfig[b][0] && str[i] === bracketsConfig[b][1]) {
         brackets.pop();
         break;
       } else {
-        brackets.push(bracket);
+        brackets.push(str[i]);
       }
     }
   }
